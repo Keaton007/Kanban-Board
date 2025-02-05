@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+build/
+.next/
+
+# Logs
+npm-debug.log
+yarn-error.log
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Database files
+*.db
+*.sqlite
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# Test artifacts
+coverage/
+*.test.js
+*.spec.js
+
+# Compiled code
+*.tsbuildinfo
+*.dll
+*.exe
