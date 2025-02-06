@@ -1,5 +1,5 @@
 import { useState, FormEvent, ChangeEvent } from "react";
-
+import { useNavigate } from "react-router-dom"; // Import navigation
 import Auth from '../utils/auth';
 import { login } from "../api/authAPI";
 
@@ -8,6 +8,7 @@ const Login = () => {
     username: '',
     password: ''
   });
+  const navigate = useNavigate()
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -21,7 +22,9 @@ const Login = () => {
     e.preventDefault();
     try {
       const data = await login(loginData);
+      console.log('Login successful, token:', data.token);
       Auth.login(data.token);
+      navigate('/');
     } catch (err) {
       console.error('Failed to login', err);
     }
@@ -31,7 +34,7 @@ const Login = () => {
     <div className='container'>
       <form className='form' onSubmit={handleSubmit}>
         <h1>Login</h1>
-        <label >Username</label>
+        <label>Username</label>
         <input 
           type='text'
           name='username'
@@ -48,8 +51,7 @@ const Login = () => {
         <button type='submit'>Submit Form</button>
       </form>
     </div>
-    
-  )
+  );
 };
 
 export default Login;
